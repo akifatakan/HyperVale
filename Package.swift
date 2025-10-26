@@ -5,26 +5,32 @@ import PackageDescription
 
 let package = Package(
     name: "HyperVale",
-    // 1. Specify the minimum platform (iOS 15 for modern SwiftUI)
     platforms: [
         .iOS(.v15)
     ],
     products: [
-        // 2. This is the library your app will import
         .library(
             name: "HyperVale",
             targets: ["HyperVale"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/juspay/hyperswitch-sdk-ios.git", branch: "main")
+        // We no longer have source dependencies
     ],
     targets: [
-        // 4. This is your package's target
+        // This is your HyperVale code
         .target(
             name: "HyperVale",
             dependencies: [
-                // 5. Link your target to the Hyperswitch product
-                .product(name: "Hyperswitch", package: "hyperswitch-sdk-ios")
-            ]),
+                // It now depends on the binary target below
+                .target(name: "Hyperswitch")
+            ]
+        ),
+
+        // This is the pre-compiled Hyperswitch SDK binary
+        .binaryTarget(
+            name: "Hyperswitch", // The module name is 'Hyperswitch'
+            url: "https://github.com/juspay/hyperswitch-pods/raw/main/HyperswitchCore.tar.gz",
+            checksum: "5a389047dbae96ad6af58196d0bdb7fe3e0ca9c30a01cabf1b368a42fe195414"
+        )
     ]
 )
