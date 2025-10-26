@@ -14,7 +14,7 @@ let package = Package(
             targets: ["HyperVale"]),
     ],
     dependencies: [
-        // We no longer have source dependencies
+        // No source dependencies
     ],
     targets: [
         // This is your HyperVale code
@@ -28,9 +28,9 @@ let package = Package(
 
         // This is the pre-compiled Hyperswitch SDK binary
         .binaryTarget(
-            name: "Hyperswitch", // The module name is 'Hyperswitch'
+            name: "Hyperswitch", // The module name
             url: "https://github.com/juspay/hyperswitch-pods/raw/main/HyperswitchCore.tar.gz",
-            checksum: "5a389047dbae96ad6af58196d0bdb7fe3e0ca9c30a01cabf1b368a42fe195414"
+            checksum: "4a5b4815a51c4a008c2d53965586616c52a373b8893708a0d4253ab1597c8d23"
         )
     ]
 )
