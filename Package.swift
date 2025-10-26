@@ -16,8 +16,7 @@ let package = Package(
             targets: ["HyperVale"]),
     ],
     dependencies: [
-        // 3. Add the Hyperswitch SDK as a dependency
-        .package(url: "https://github.com/juspay/hyperswitch-sdk-ios.git", .upToNextMajor(from: "1.8.0"))
+        .package(url: "https://github.com/juspay/hyperswitch-sdk-ios.git", branch: "main")
     ],
     targets: [
         // 4. This is your package's target
